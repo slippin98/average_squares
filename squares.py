@@ -49,8 +49,9 @@ def convert_numbers(list_of_strings):
     # ...then convert each substring into a number
     return [float(number_string) for number_string in all_numbers]
 
+def convert_weights(list_of_strings)
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
     numbers_strings = ["1","2","4"]
     weight_strings = ["1","1","1"]        
     
@@ -60,3 +61,34 @@ if __name__ == "__main__":
     result = average_of_squares(numbers, weights)
     
     print(result)
+
+
+
+import argparse ## import the library
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser( ## given all numbers given in CLI after running python squares.py
+        description="Calculate the sum of sqaures"
+    )
+    parser.add_argument(
+        "numbers",
+        nargs="+", # can simply be 1 for 1 number or we can use + for indefinite numbers in CLI
+        help="Sequence of numbers to square and add",
+        
+    )
+
+    parser.add_argument(
+        "weights",
+                nargs="+"
+    )
+    args = parser.parse_args() # read the defined inputs for above script
+
+    
+
+    numbers = convert_numbers(args.numbers)
+    weights = convert_weights(args.numbers)
+
+    result = average_of_squares(numbers, weights)
+    print(result)
+
+
